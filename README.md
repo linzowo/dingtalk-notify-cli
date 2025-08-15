@@ -387,7 +387,7 @@ npm test
 
 ## 许可证
 
-[MIT](LICENSE) © [作者名称]
+[MIT](LICENSE) © [linzowo]
 
 ## 更新日志
 
