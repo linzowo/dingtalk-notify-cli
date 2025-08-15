@@ -1,0 +1,58 @@
+{
+  "name": "dingtalk-notify-cli",
+  "version": "1.0.0",
+  "description": "全局CLI工具，用于向钉钉群机器人发送消息",
+  "main": "index.js",
+  "bin": {
+    "dingtalk-notify": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "index.js",
+    "README.md",
+    "LICENSE",
+    "dingtalk-notify.example.json"
+  ],
+  "scripts": {
+    "test": "echo \"暂无测试用例\" && exit 0",
+    "start": "node bin/cli.js",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "dingtalk",
+    "robot",
+    "notification",
+    "cli",
+    "webhook",
+    "message",
+    "alert",
+    "notify",
+    "钉钉",
+    "机器人",
+    "通知"
+  ],
+  "author": {
+    "name": "linzowo",
+    "email": "linzowo@outlook.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/linzowo/dingtalk-notify-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linzowo/dingtalk-notify-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/linzowo/dingtalk-notify-cli/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "commander": "14.0.0",
+    "dingtalk-robot-sender": "1.2.0",
+    "find-config": "1.0.0"
+  },
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
+}

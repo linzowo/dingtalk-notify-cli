@@ -1,0 +1,97 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      commander:
+        specifier: ^14.0.0
+        version: 14.0.0
+      dingtalk-robot-sender:
+        specifier: ^1.2.0
+        version: 1.2.0
+      find-config:
+        specifier: ^1.0.0
+        version: 1.0.0
+
+packages:
+
+  axios@0.19.2:
+    resolution: {integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==}
+    deprecated: Critical security vulnerability fixed in v0.21.1. For more information, see https://github.com/axios/axios/pull/3410
+
+  commander@14.0.0:
+    resolution: {integrity: sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==}
+    engines: {node: '>=20'}
+
+  debug@3.1.0:
+    resolution: {integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  dingtalk-robot-sender@1.2.0:
+    resolution: {integrity: sha512-sLSZpjXYz+VpWvuCoOnhPTnIFcVYBdNEGSEQqjYwb09YUmiNUtvhT/VftOxAkfhNykOjmQ4lSY+90lVWErThbw==}
+
+  find-config@1.0.0:
+    resolution: {integrity: sha512-Z+suHH+7LSE40WfUeZPIxSxypCWvrzdVc60xAjUShZeT5eMWM0/FQUduq3HjluyfAHWvC/aOBkT1pTZktyF/jg==}
+    engines: {node: '>= 0.12'}
+
+  follow-redirects@1.5.10:
+    resolution: {integrity: sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==}
+    engines: {node: '>=4.0'}
+
+  ms@2.0.0:
+    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
+
+  os-homedir@1.0.2:
+    resolution: {integrity: sha512-B5JU3cabzk8c67mRRd3ECmROafjYMXbuzlwtqdM8IbS8ktlTix8aFGb2bAGKrSRIlnfKwovGUUr72JUPyOb6kQ==}
+    engines: {node: '>=0.10.0'}
+
+  user-home@2.0.0:
+    resolution: {integrity: sha512-KMWqdlOcjCYdtIJpicDSFBQ8nFwS2i9sslAd6f4+CBGcU4gist2REnr2fxj2YocvJFxSF3ZOHLYLVZnUxv4BZQ==}
+    engines: {node: '>=0.10.0'}
+
+snapshots:
+
+  axios@0.19.2:
+    dependencies:
+      follow-redirects: 1.5.10
+    transitivePeerDependencies:
+      - supports-color
+
+  commander@14.0.0: {}
+
+  debug@3.1.0:
+    dependencies:
+      ms: 2.0.0
+
+  dingtalk-robot-sender@1.2.0:
+    dependencies:
+      axios: 0.19.2
+    transitivePeerDependencies:
+      - supports-color
+
+  find-config@1.0.0:
+    dependencies:
+      user-home: 2.0.0
+
+  follow-redirects@1.5.10:
+    dependencies:
+      debug: 3.1.0
+    transitivePeerDependencies:
+      - supports-color
+
+  ms@2.0.0: {}
+
+  os-homedir@1.0.2: {}
+
+  user-home@2.0.0:
+    dependencies:
+      os-homedir: 1.0.2

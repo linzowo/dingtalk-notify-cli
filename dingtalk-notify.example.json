@@ -1,0 +1,11 @@
+{
+  "msgType": "text",
+  "title": "",
+  "addTimestamp": true,
+  "addSource": false,
+  "dingtalk": {
+    "accessToken": "your_access_token_here",
+    "secret": "your_secret_here_optional"
+  }
+}
+    

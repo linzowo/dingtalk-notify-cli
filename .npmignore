@@ -1,0 +1,70 @@
+# 开发和测试文件
+*.test.js
+*.spec.js
+test/
+tests/
+__tests__/
+.nyc_output/
+coverage/
+
+# 文档和示例（已在 package.json files 字段中指定需要的）
+docs/
+examples/
+.github/
+
+# 配置文件
+.eslintrc*
+.prettierrc*
+.editorconfig
+.vscode/
+.idea/
+
+# 构建和开发工具
+.babelrc*
+webpack.config.js
+rollup.config.js
+tsconfig.json
+jest.config.js
+
+# 日志文件
+*.log
+logs/
+dingtalk-notify.log
+
+# 临时文件
+tmp/
+temp/
+.tmp/
+
+# 实际配置文件（包含敏感信息）
+dingtalk-notify.json
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 文件
+*.swp
+*.swo
+*~
+
+# 备份文件
+*.bak
+*.backup
+
+# 开发依赖相关
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 环境变量文件
+.env*
+
+# 测试指南（开发文档）
+TEST_GUIDE.md
+
+# Git 相关
+.git/
+.gitignore
