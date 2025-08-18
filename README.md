@@ -5,7 +5,7 @@
 ## 特性
 
 - 🚀 简单易用的命令行界面
-- 📝 支持文本和 Markdown 格式消息
+- 📝 支持文本消息发送
 - ⚙️ 灵活的配置文件支持
 - 📊 完整的日志记录功能
 - 🔒 支持加签安全验证
@@ -79,8 +79,6 @@ dingtalk-notify init --force
 
 ```json
 {
-  "msgType": "text",
-  "title": "系统通知",
   "addTimestamp": true,
   "addSource": true,
   "dingtalk": {
@@ -96,11 +94,8 @@ dingtalk-notify init --force
 # 发送简单文本消息
 dingtalk-notify "Hello, World!"
 
-# 发送带标题的消息
-dingtalk-notify "部署完成" --title "系统通知"
-
-# 发送 Markdown 消息
-dingtalk-notify "**重要通知**\n\n系统将于今晚维护" --type markdown
+# 发送包含换行的消息
+dingtalk-notify send --content "第一行\n第二行"
 ```
 
 ## 命令行选项
@@ -143,8 +138,6 @@ dingtalk-notify logs [count]
 
 ```json
 {
-  "msgType": "text",           // 消息类型：text 或 markdown
-  "title": "系统通知",          // 默认消息标题
   "addTimestamp": true,        // 是否添加时间戳
   "addSource": true,           // 是否添加来源信息
   "logMaxLines": 1000,         // 日志文件最大行数
@@ -207,13 +200,13 @@ dingtalk-notify logs 5
 
 # 部署脚本
 echo "开始部署..."
-dingtalk-notify "开始部署应用" --title "部署通知"
+dingtalk-notify "开始部署应用"
 
 # 执行部署命令
 if npm run build && npm run deploy; then
-    dingtalk-notify "✅ 部署成功" --title "部署完成"
+    dingtalk-notify "✅ 部署成功"
 else
-    dingtalk-notify "❌ 部署失败，请检查日志" --title "部署失败"
+    dingtalk-notify "❌ 部署失败，请检查日志"
     exit 1
 fi
 ```
@@ -223,7 +216,7 @@ fi
 ```yaml
 # GitHub Actions 示例
 - name: 通知部署开始
-  run: dingtalk-notify "开始部署到生产环境" --title "CI/CD 通知"
+  run: dingtalk-notify "开始部署到生产环境"
 
 - name: 部署应用
   run: npm run deploy
@@ -232,9 +225,9 @@ fi
   if: always()
   run: |
     if [ ${{ job.status }} == 'success' ]; then
-      dingtalk-notify "✅ 生产环境部署成功" --title "部署完成"
+      dingtalk-notify "✅ 生产环境部署成功"
     else
-      dingtalk-notify "❌ 生产环境部署失败" --title "部署失败"
+      dingtalk-notify "❌ 生产环境部署失败"
     fi
 ```
 

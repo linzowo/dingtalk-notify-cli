@@ -48,6 +48,32 @@ program
     }
   });
 
+// send 命令：发送消息（支持复杂参数）
+program
+  .command('send')
+  .description('发送消息到钉钉群（支持换行内容）')
+  .option('-c, --content <content>', '消息内容（支持换行）')
+  .action(async (options) => {
+    if (!options.content) {
+      console.error('❌ 请使用 --content 参数指定消息内容');
+      console.log('💡 示例: dingtalk-notify send --content "第一行\\n第二行"');
+      process.exit(1);
+    }
+    
+    try {
+      // 处理换行符
+      const content = options.content.replace(/\\n/g, '\n');
+      
+      // 使用基本的 sendMessage 函数发送文本消息
+      await sendMessage(content);
+      
+      console.log('✅ 消息发送成功');
+    } catch (error) {
+      console.error('❌ 消息发送失败:', error.message);
+      process.exit(1);
+    }
+  });
+
 // logs 命令：查看日志
 program
   .command('logs')
@@ -73,7 +99,8 @@ program
 program.on('--help', () => {
   console.log('');
   console.log('使用示例:');
-  console.log('  $ dingtalk-notify "Hello, World!"          # 发送消息');
+  console.log('  $ dingtalk-notify "Hello, World!"          # 发送简单消息');
+  console.log('  $ dingtalk-notify send -c "多行\\n内容"      # 发送包含换行的消息');
   console.log('  $ dingtalk-notify init                     # 创建配置文件');
   console.log('  $ dingtalk-notify init --force             # 强制重新创建配置文件');
   console.log('  $ dingtalk-notify logs                     # 查看所有日志');

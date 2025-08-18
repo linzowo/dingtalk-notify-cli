@@ -18,8 +18,6 @@ cp dingtalk-notify.example.json dingtalk-notify.json
 2. 编辑 `dingtalk-notify.json`，填入真实的钉钉机器人信息：
 ```json
 {
-  "msgType": "text",
-  "title": "测试通知",
   "addTimestamp": true,
   "addSource": true,
   "dingtalk": {
@@ -64,14 +62,14 @@ node bin/cli.js "测试带时间戳和来源的消息"
 **预期结果：**
 - 钉钉群收到的消息格式类似：`[2024-01-01 12:00:00] 测试带时间戳和来源的消息\n(来自: your-hostname)`
 
-### 测试用例 3：Markdown 消息
-修改 `dingtalk-notify.json` 中的 `msgType` 为 `"markdown"`：
+### 测试用例 3：包含换行的消息
+使用 send 命令测试包含换行的消息：
 ```bash
-node bin/cli.js "## 测试标题\n这是**粗体**文本\n- 列表项1\n- 列表项2"
+node bin/cli.js send --content "第一行\n第二行\n第三行"
 ```
 
 **预期结果：**
-- 钉钉群收到格式化的 Markdown 消息
+- 钉钉群收到包含换行的文本消息
 
 ### 测试用例 4：错误处理测试
 
@@ -130,7 +128,7 @@ for ($i=1; $i -le 600; $i++) { node bin/cli.js "测试消息 $i" }
 
 - [ ] 基本消息发送功能正常
 - [ ] 时间戳和来源信息正确添加
-- [ ] Markdown 消息格式正确
+- [ ] 包含换行的消息发送正常
 - [ ] 错误处理机制有效
 - [ ] 日志记录功能完整
 - [ ] 日志行数限制生效

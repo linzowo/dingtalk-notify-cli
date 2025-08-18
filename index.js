@@ -11,8 +11,6 @@ const { logMessageSend } = require('./lib/logger');
  * 发送钉钉消息
  * @param {string} message - 要发送的消息内容
  * @param {Object} options - 可选配置
- * @param {string} options.title - 消息标题
- * @param {string} options.msgType - 消息类型 (text|markdown)
  * @param {boolean} options.addTimestamp - 是否添加时间戳
  * @param {boolean} options.addSource - 是否添加来源信息
  * @returns {Promise<Object>} 发送结果
@@ -24,12 +22,6 @@ async function notify(message, options = {}) {
 
   // 临时设置配置选项（如果提供）
   const originalConfig = loadConfig();
-  if (options.title !== undefined) {
-    originalConfig.title = options.title;
-  }
-  if (options.msgType !== undefined) {
-    originalConfig.msgType = options.msgType;
-  }
   if (options.addTimestamp !== undefined) {
     originalConfig.addTimestamp = options.addTimestamp;
   }
